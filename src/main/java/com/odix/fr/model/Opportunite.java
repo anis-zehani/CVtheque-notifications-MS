@@ -1,0 +1,143 @@
+package com.odix.fr.model;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import lombok.Data;
+	
+@Data
+@Entity
+public class Opportunite implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3301405585667329930L;
+
+	@Id
+	private @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+	
+	@Column
+	private String titreOpportunite;
+	
+	@Column(length = 1024)
+	private String descriptionOpportunite;
+
+	@Column
+	private LocalDate dateAjout;
+	
+	@Column
+	private LocalDate dateDemarrageSouhaitee;
+	
+	@Column
+	private String tjmOpportunite;
+	
+	@Column
+	private String urlPhotoOpportunite;
+	
+	@Column
+	@Enumerated(EnumType.STRING)
+	private Etat etatOpportunite;
+	
+	//C'est le partenaire
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	private Utilisateur responsableOpportunite;
+	
+	//C'est la personne qui a inséré l'opportunité :  : qui a inséré cette opportunité, ça peut être un Administrateur ou un Partenaire
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	private Utilisateur utilisateur;
+
+	
+	public Opportunite() {
+		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTitreOpportunite() {
+		return titreOpportunite;
+	}
+
+	public void setTitreOpportunite(String titreOpportunite) {
+		this.titreOpportunite = titreOpportunite;
+	}
+
+	public String getDescriptionOpportunite() {
+		return descriptionOpportunite;
+	}
+
+	public void setDescriptionOpportunite(String descriptionOpportunite) {
+		this.descriptionOpportunite = descriptionOpportunite;
+	}
+
+	public LocalDate getDateAjout() {
+		return dateAjout;
+	}
+
+	public void setDateAjout(LocalDate dateAjout) {
+		this.dateAjout = dateAjout;
+	}
+
+	public LocalDate getDateDemarrageSouhaitee() {
+		return dateDemarrageSouhaitee;
+	}
+
+	public void setDateDemarrageSouhaitee(LocalDate dateDemarrageSouhaitee) {
+		this.dateDemarrageSouhaitee = dateDemarrageSouhaitee;
+	}
+
+	public String getTjmOpportunite() {
+		return tjmOpportunite;
+	}
+
+	public void setTjmOpportunite(String tjmOpportunite) {
+		this.tjmOpportunite = tjmOpportunite;
+	}
+
+	public String getUrlPhotoOpportunite() {
+		return urlPhotoOpportunite;
+	}
+
+	public void setUrlPhotoOpportunite(String urlPhotoOpportunite) {
+		this.urlPhotoOpportunite = urlPhotoOpportunite;
+	}
+
+	public Etat getEtatOpportunite() {
+		return etatOpportunite;
+	}
+
+	public void setEtatOpportunite(Etat etatOpportunite) {
+		this.etatOpportunite = etatOpportunite;
+	}
+
+	public Utilisateur getResponsableOpportunite() {
+		return responsableOpportunite;
+	}
+
+	public void setResponsableOpportunite(Utilisateur responsableOpportunite) {
+		this.responsableOpportunite = responsableOpportunite;
+	}
+	
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+}
