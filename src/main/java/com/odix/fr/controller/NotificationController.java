@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,13 +35,13 @@ public class NotificationController {
 	@PostMapping("/generateSimpleNotification")
 	public void generateSimpleNotification
 	(
-			   @RequestBody String objetNotification, 
-			   @RequestBody String corpsNotification,
-			   @RequestBody List<Utilisateur> listeDestinatairesNotification, 
-			   @RequestBody Utilisateur generateurNotification,
-			   @RequestBody Candidat candidatNotification,
-			   @RequestBody PartenaireTemporaire partenaireNotification,
-			   @RequestBody Opportunite opportuniteNotification
+			   @PathVariable  String objetNotification, 
+			   @PathVariable  String corpsNotification,
+			   @PathVariable List<Utilisateur> listeDestinatairesNotification, 
+			   @PathVariable Utilisateur generateurNotification,
+			   @PathVariable Candidat candidatNotification,
+			   @PathVariable PartenaireTemporaire partenaireNotification,
+			   @PathVariable Opportunite opportuniteNotification
 	) 
 	{
 		notificationService.generateSimpleNotification
