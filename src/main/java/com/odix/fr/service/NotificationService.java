@@ -3,7 +3,6 @@ package com.odix.fr.service;
 import java.util.List;
 import java.util.UUID;
 
-import com.odix.fr.model.Candidat;
 import com.odix.fr.model.Notification;
 import com.odix.fr.model.Opportunite;
 import com.odix.fr.model.PartenaireTemporaire;
@@ -25,8 +24,8 @@ public interface NotificationService {
 									 	   String corpsNotification, 
 									       List<Utilisateur> listeDestinatairesNotification, 
 									       Utilisateur generateurNotification,
-									       Candidat candidatNotification,
-									       PartenaireTemporaire partenaireNotification,
+									       Utilisateur candidatNotification,
+									       Utilisateur partenaireNotification,
 									 	   Opportunite opportuniteNotification);
 
 }

@@ -62,10 +62,10 @@ public class Notification implements Serializable {
 	
 	/*Paramètres d'informations supplémantaires pour l'affichage de la Pop-Up Notification*/
 	@Column
-	private Candidat candidatNotification;
+	private Utilisateur candidatNotification;
 	
 	@Column
-	private PartenaireTemporaire partenaireTemporaireNotification;
+	private Utilisateur partenaireTemporaireNotification;
 	
 	@Column
 	private Opportunite opportuniteNotification;
@@ -126,7 +126,7 @@ public class Notification implements Serializable {
 		this.etatNotification = etatNotification;
 	}
 
-	public Candidat getCandidatNotification() {
+	public Utilisateur getCandidatNotification() {
 		return candidatNotification;
 	}
 
@@ -134,7 +134,7 @@ public class Notification implements Serializable {
 		return opportuniteNotification;
 	}
 
-	public void setCandidatNotification(Candidat candidatNotification) {
+	public void setCandidatNotification(Utilisateur candidatNotification) {
 		this.candidatNotification = candidatNotification;
 	}
 
@@ -142,11 +142,11 @@ public class Notification implements Serializable {
 		this.opportuniteNotification = opportuniteNotification;
 	}
 
-	public PartenaireTemporaire getPartenaireTemporaireNotification() {
+	public Utilisateur getPartenaireTemporaireNotification() {
 		return partenaireTemporaireNotification;
 	}
 
-	public void setPartenaireTemporaireNotification(PartenaireTemporaire partenaireTemporaireNotification) {
+	public void setPartenaireTemporaireNotification(Utilisateur partenaireTemporaireNotification) {
 		this.partenaireTemporaireNotification = partenaireTemporaireNotification;
 	}
 	

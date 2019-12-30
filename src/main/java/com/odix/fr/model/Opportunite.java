@@ -2,14 +2,13 @@ package com.odix.fr.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -24,7 +23,9 @@ public class Opportunite implements Serializable {
 	private static final long serialVersionUID = -3301405585667329930L;
 
 	@Id
-	private @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
+	//Attention : ne doit pas être Generated car il doit avoir le même UUID que le MS Maître
+	@Column(name = "id", updatable = false, nullable = false, unique=true)
+	private UUID id;
 	
 	@Column
 	private String titreOpportunite;
@@ -61,11 +62,11 @@ public class Opportunite implements Serializable {
 		super();
 	}
 
-	public Long getId() {
+	public UUID getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
 

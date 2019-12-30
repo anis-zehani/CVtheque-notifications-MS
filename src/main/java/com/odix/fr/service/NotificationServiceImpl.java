@@ -8,7 +8,6 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.odix.fr.model.Candidat;
 import com.odix.fr.model.Etat;
 import com.odix.fr.model.Notification;
 import com.odix.fr.model.Opportunite;
@@ -65,8 +64,8 @@ public class NotificationServiceImpl implements NotificationService{
 									 	   String corpsNotification,
 									 	   List<Utilisateur> listeDestinatairesNotification, 
 									 	   Utilisateur generateurNotification,
-									 	   Candidat candidatNotification,
-									 	   PartenaireTemporaire partenaireNotification,
+									 	   Utilisateur candidatNotification,
+									 	   Utilisateur partenaireNotification,
 									 	   Opportunite opportuniteNotification) {
 
 		Notification notification = new Notification();
