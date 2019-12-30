@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.odix.fr.model.Notification;
 import com.odix.fr.model.POJONotification;
+import com.odix.fr.model.PartenaireTemporaire;
 import com.odix.fr.service.NotificationService;
 
 @CrossOrigin
@@ -43,6 +44,12 @@ public class NotificationController {
 				pojoNotification.getPartenaireNotification(), 
 				pojoNotification.getOpportuniteNotification()
 		);
+	}
+	
+	@PostMapping("/deactivateNotificationsByPartenaireTemporaire")
+	public void deactivateNotificationsByPartenaireTemporaire(@RequestBody PartenaireTemporaire partenaireTemporaire)
+	{
+		notificationService.deactivateNotificationsByPartenaireTemporaire(partenaireTemporaire);
 	}
 	
 	@DeleteMapping("/{idNotification}")
