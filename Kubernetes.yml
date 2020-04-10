@@ -18,10 +18,12 @@ spec:
     spec:
       containers:
       - name: notifications-container
-        image: registry.gitlab.com/gitlabodix/notifications-ms
+        image: registry.gitlab.com/gitlabodix/cvtheque-notifications-ms-prod
         imagePullPolicy: Always
         ports:
         - containerPort: 8004
+      imagePullSecrets:
+      - name: gitlab-secrets
 ---
 apiVersion: v1
 kind: Service
