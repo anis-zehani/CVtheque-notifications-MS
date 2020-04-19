@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: notifications-deployment
   labels:
-    app: notifications-MS
+    app: notifications
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: notifications-MS
+      app: notifications
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: notifications-MS
+        app: notifications
     spec:
       containers:
       - name: notifications-container
@@ -29,10 +29,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: notifications-service
+  name: notifications-ms
 spec:
   selector:
-    app: notifications-MS
+    app: notifications
   ports:
     - port: 8004
       targetPort: 8004
